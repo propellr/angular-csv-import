@@ -1,4 +1,4 @@
-/*! angular-csv-import - v0.0.16 - 2015-06-23
+/*! angular-csv-import - v0.0.17 - 2015-06-30
 * Copyright (c) 2015 ; Licensed  */
 'use strict';
 
@@ -46,7 +46,10 @@ csvImport.directive('ngCsvImport', function() {
       });
 
       var btn = element.find('.btn');
-      btn.on('click', function () { element.find('.file-upload').click(); });
+      btn.on('click', function () {
+        element.find('.file-upload')['0'].value = '';
+        element.find('.file-upload').click();
+      });
 
       element.on('change', function(onChangeEvent) {
         var reader = new FileReader();
